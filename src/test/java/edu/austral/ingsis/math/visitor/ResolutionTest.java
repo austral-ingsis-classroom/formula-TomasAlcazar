@@ -16,9 +16,9 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction1() {
-        final Function function1 = new Valor(1);
-        final Function function2 = new Valor(6);
-        final double result = visitor.visit(new Suma(function1, function2));
+        final Function function1 = new Value(1);
+        final Function function2 = new Value(6);
+        final double result = visitor.visit(new Addition(function1, function2));
 
         assertThat(result, equalTo(7d));
     }
@@ -28,8 +28,8 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction2() {
-        final Function dividend = new Valor(12);
-        final Function divisor = new Valor(2);
+        final Function dividend = new Value(12);
+        final Function divisor = new Value(2);
         final double result = visitor.visit(new Division(dividend, divisor));
 
         assertThat(result, equalTo(6d));
@@ -40,9 +40,9 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction3() {
-        final Function dividend = new Valor(9);
-        final Function divisor = new Valor(2);
-        final double result = visitor.visit(new Multiplication(new Division(dividend, divisor), new Valor(3)));
+        final Function dividend = new Value(9);
+        final Function divisor = new Value(2);
+        final double result = visitor.visit(new Multiplication(new Division(dividend, divisor), new Value(3)));
 
         assertThat(result, equalTo(13.5d));
     }
@@ -52,9 +52,9 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction4() {
-        final Function dividend = new Valor(27);
-        final Function divisor = new Valor(6);
-        final double result = visitor.visit(new Power(new Division(dividend, divisor), new Valor(2)));
+        final Function dividend = new Value(27);
+        final Function divisor = new Value(6);
+        final double result = visitor.visit(new Power(new Division(dividend, divisor), new Value(2)));
 
         assertThat(result, equalTo(20.25d));
     }
@@ -64,8 +64,8 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction5() {
-        final Function base = new Valor(36);
-        final Function exponent = new Division(new Valor(1), new Valor(2));
+        final Function base = new Value(36);
+        final Function exponent = new Division(new Value(1), new Value(2));
         final double result = visitor.visit(new Power(base, exponent));
 
         assertThat(result, equalTo(6d));
@@ -76,7 +76,7 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction6() {
-        final Function value = new Valor(136);
+        final Function value = new Value(136);
         final double result = visitor.visit(new Absolute(value));
 
         assertThat(result, equalTo(136d));
@@ -87,7 +87,7 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction7() {
-        final Function value = new Valor(-136);
+        final Function value = new Value(-136);
         final double result = visitor.visit(new Absolute(value));
 
         assertThat(result, equalTo(136d));
@@ -98,10 +98,10 @@ public class ResolutionTest {
      */
     @Test
     public void shouldResolveSimpleFunction8() {
-        final Function leftOperand = new Valor(5);
-        final Function rightOperand = new Valor(5);
-        final Function subtraction = new Resta(leftOperand, rightOperand);
-        final double result = visitor.visit(new Multiplication(subtraction, new Valor(8)));
+        final Function leftOperand = new Value(5);
+        final Function rightOperand = new Value(5);
+        final Function subtraction = new Subtraction(leftOperand, rightOperand);
+        final double result = visitor.visit(new Multiplication(subtraction, new Value(8)));
 
         assertThat(result, equalTo(0d));
     }

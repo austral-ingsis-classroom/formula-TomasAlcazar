@@ -1,7 +1,5 @@
 package edu.austral.ingsis.math.composite;
 
-
-import edu.austral.ingsis.math.composite.operaciones.*;
 import edu.austral.ingsis.math.composite.operations.*;
 import org.junit.Test;
 
