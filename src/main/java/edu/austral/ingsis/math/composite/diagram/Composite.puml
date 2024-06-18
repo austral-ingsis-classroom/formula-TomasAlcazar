@@ -1,0 +1,36 @@
+@startuml
+
+interface Operacion extends Function{
+Function value1;
+Function value2;
+}
+interface Function{
+}
+class suma implements Operacion{
+makeFunction(Function value1, Function value2);
+
+}
+class resta implements Operacion{
+makeFunction(Function value1, Function value2);
+
+}
+class multiplicacion implements Operacion{
+makeFunction(Function value1, Function value2);
+
+}
+class variable implements Function{
+String variable;
+int value;
+}
+class value implements Function{
+int value;
+}
+class division implements Operacion{
+makeFunction(Function value1, Function value2);
+}
+class Module implements Function{
+}
+class SquareRoot implements Function{
+}
+
+@enduml
