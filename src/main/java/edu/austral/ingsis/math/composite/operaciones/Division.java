@@ -1,12 +1,11 @@
-package edu.austral.ingsis.math.composite.operations;
+package edu.austral.ingsis.math.composite.operaciones;
 
 import edu.austral.ingsis.math.composite.Function;
 
 import java.util.List;
 import java.util.Map;
 
-public class Division implements Operation {
-
+public class Division implements Operation{
     private final Function a;
     private final Function b;
 
@@ -26,7 +25,6 @@ public class Division implements Operation {
     public String printValue() {
         return a.printValue() + " / " + b.printValue();
     }
-
     @Override
     public List<String> getVariables(List<String> list) {
         a.getVariables(list);

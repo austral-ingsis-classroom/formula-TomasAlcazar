@@ -3,22 +3,21 @@ package edu.austral.ingsis.math.visitor.operations;
 import edu.austral.ingsis.math.visitor.Function;
 import edu.austral.ingsis.math.visitor.Visitor;
 
-public class Subtraction implements Function {
+public class Resta implements Function {
+    private final Function left;
+    private final Function right;
 
-    private final Function a;
-    private final Function b;
-
-    public Subtraction(Function a, Function b) {
-        this.a = a;
-        this.b = b;
+    public Resta(Function left, Function right) {
+        this.left = left;
+        this.right = right;
     }
 
     public Function getLeft() {
-        return a;
+        return left;
     }
 
     public Function getRight() {
-        return b;
+        return right;
     }
 
     @Override

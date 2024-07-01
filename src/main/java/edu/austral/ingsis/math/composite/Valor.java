@@ -1,28 +1,27 @@
 package edu.austral.ingsis.math.composite;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Parentheses implements Function{
-
-    Function a;
-
-    public Parentheses(Function a){
-        this.a = a;
+public class Valor implements Function{
+    double valor;
+    public Valor(double valor){
+        this.valor = valor;
     }
 
     @Override
     public double solve(Map<String, Double> variables) {
-        return a.solve(variables);
+        return valor;
     }
 
     @Override
     public String printValue() {
-        return "(" + a.printValue() + ")";
+        return Double.toString(valor);
     }
 
     @Override
     public List<String> getVariables(List<String> list) {
-        return a.getVariables(list);
+        return list;
     }
 }

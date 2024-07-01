@@ -1,11 +1,13 @@
 package edu.austral.ingsis.math.visitor;
 
-import edu.austral.ingsis.math.visitor.Function;
+public class squareRoot implements Function{
+    Function funcion;
 
-public class Absolute implements Function {
-    public Function funcion;
-    public Absolute(Function funcion) {
+    public squareRoot(Function funcion) {
         this.funcion = funcion;
+    }
+    public Function getFuncion() {
+        return funcion;
     }
     @Override
     public <T> T accepts(Visitor<T> visitor) {

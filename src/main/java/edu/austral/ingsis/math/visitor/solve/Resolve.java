@@ -11,29 +11,28 @@ public class Resolve implements Visitor<Double> {
     public Resolve(Map<String, Double> variables) {
         this.variables = variables;
     }
-
     public void addVariable(String name, Double value){
         variables.put(name, value);
     }
 
     @Override
-    public Double visit(Value number) {
-        return number.value();
+    public Double visit(Valor number) {
+        return number.getValue();
     }
 
     @Override
     public Double visit(Variable variable) {
-        return variables.get(variable.name());
+        return variables.get(variable.getName());
     }
 
     @Override
-    public Double visit(Addition addition) {
-        return addition.getRight().accepts(this) + addition.getLeft().accepts(this);
+    public Double visit(Suma suma) {
+        return suma.getRight().accepts(this) + suma.getLeft().accepts(this);
     }
 
     @Override
-    public Double visit(Subtraction subtraction) {
-        return subtraction.getLeft().accepts(this) - subtraction.getRight().accepts(this);
+    public Double visit(Resta resta) {
+        return resta.getLeft().accepts(this) - resta.getRight().accepts(this);
     }
 
     @Override
@@ -52,12 +51,12 @@ public class Resolve implements Visitor<Double> {
     }
 
     @Override
-    public Double visit(SquareRoot square) {
-        return Math.sqrt(square.getFunction().accepts(this));
+    public Double visit(squareRoot square) {
+        return Math.sqrt(square.getFuncion().accepts(this));
     }
 
     @Override
     public Double visit(Absolute absolute) {
-        return Math.abs(absolute.function.accepts(this));
+        return Math.abs(absolute.funcion.accepts(this));
     }
 }

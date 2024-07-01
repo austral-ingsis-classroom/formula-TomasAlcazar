@@ -4,11 +4,8 @@ import edu.austral.ingsis.math.visitor.Function;
 import edu.austral.ingsis.math.visitor.Visitor;
 
 public class Multiplication implements Function {
-
     Function left;
-
     Function right;
-
     public Multiplication(Function left, Function right) {
         this.left = left;
         this.right = right;

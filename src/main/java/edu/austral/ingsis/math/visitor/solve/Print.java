@@ -6,23 +6,23 @@ import edu.austral.ingsis.math.visitor.operations.*;
 public class Print implements Visitor<String>{
 
     @Override
-    public String visit(Value value) {
-        return Double.toString(value.value());
+    public String visit(Valor number) {
+        return Double.toString(number.getValue());
     }
 
     @Override
     public String visit(Variable variable) {
-        return variable.name();
+        return variable.getName();
     }
 
     @Override
-    public String visit(Addition addition) {
-        return addition.getLeft().accepts(this) + " + " + addition.getRight().accepts(this);
+    public String visit(Suma suma) {
+        return suma.getLeft().accepts(this) + " + " + suma.getRight().accepts(this);
     }
 
     @Override
-    public String visit(Subtraction subtraction) {
-        return subtraction.getLeft().accepts(this) + " - " + subtraction.getRight().accepts(this);
+    public String visit(Resta resta) {
+        return resta.getLeft().accepts(this) + " - " + resta.getRight().accepts(this);
     }
 
     @Override
@@ -41,12 +41,12 @@ public class Print implements Visitor<String>{
     }
 
     @Override
-    public String visit(SquareRoot square) {
-        return square.getFunction().accepts(this) + " ^ 1/2";
+    public String visit(squareRoot square) {
+        return square.getFuncion().accepts(this) + " ^ 1/2";
     }
 
     @Override
     public String visit(Absolute absolute) {
-        return "|" + absolute.function.accepts(this) + "|";
+        return "|" + absolute.funcion.accepts(this) + "|";
     }
 }

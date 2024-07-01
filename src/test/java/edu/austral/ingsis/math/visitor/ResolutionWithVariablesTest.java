@@ -2,7 +2,7 @@ package edu.austral.ingsis.math.visitor;
 
 import edu.austral.ingsis.math.visitor.operations.*;
 import edu.austral.ingsis.math.visitor.solve.Resolve;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 
@@ -19,7 +19,7 @@ public class ResolutionWithVariablesTest {
     @Test
     public void shouldResolveFunction1() {
         visitor.addVariable("x", 3d);
-        final Double result = visitor.visit(new Addition(new Value(1), new Variable("x")));
+        final Double result = visitor.visit(new Suma(new Valor(1), new Variable("x")));
         assertThat(result, equalTo(4d));
     }
 
@@ -29,7 +29,7 @@ public class ResolutionWithVariablesTest {
     @Test
     public void shouldResolveFunction2() {
         visitor.addVariable("div", 4d);
-        final Double result = visitor.visit(new Division(new Value(12), new Variable("div")));
+        final Double result = visitor.visit(new Division(new Valor(12), new Variable("div")));
 
         assertThat(result, equalTo(3d));
     }
@@ -41,7 +41,7 @@ public class ResolutionWithVariablesTest {
     public void shouldResolveFunction3() {
         visitor.addVariable("x", 3d);
         visitor.addVariable("y", 4d);
-        final Double result = visitor.visit(new Multiplication(new Division(new Value(9), new Variable("x")), new Variable("y")));
+        final Double result = visitor.visit(new Multiplication(new Division(new Valor(9), new Variable("x")), new Variable("y")));
         assertThat(result, equalTo(12d));
     }
 
@@ -52,7 +52,7 @@ public class ResolutionWithVariablesTest {
     public void shouldResolveFunction4() {
         visitor.addVariable("a", 9d);
         visitor.addVariable("b", 3d);
-        final Double result = visitor.visit(new Power(new Division(new Value(27), new Variable("a")), new Variable("b")));
+        final Double result = visitor.visit(new Power(new Division(new Valor(27), new Variable("a")), new Variable("b")));
         assertThat(result, equalTo(27d));
     }
 
@@ -62,7 +62,7 @@ public class ResolutionWithVariablesTest {
     @Test
     public void shouldResolveFunction5() {
         visitor.addVariable("z", 36d);
-        final Double result = visitor.visit(new Power(new Variable("z"), new Division(new Value(1), new Value(2))));
+        final Double result = visitor.visit(new Power(new Variable("z"), new Division(new Valor(1), new Valor(2))));
         assertThat(result, equalTo(6d));
     }
 
@@ -72,7 +72,7 @@ public class ResolutionWithVariablesTest {
     @Test
     public void shouldResolveFunction7() {
         visitor.addVariable("value", 8d);
-        final Double result = visitor.visit(new Subtraction(new Absolute(new Variable("value")), new Value(8)));
+        final Double result = visitor.visit(new Resta(new Absolute(new Variable("value")), new Valor(8)));
         assertThat(result, equalTo(0d));
     }
 
@@ -82,7 +82,7 @@ public class ResolutionWithVariablesTest {
     @Test
     public void shouldResolveFunction8() {
         visitor.addVariable("i", 2d);
-        final double result = visitor.visit(new Multiplication(new Subtraction(new Value(5), new Variable("i")), new Value(8)));
+        final double result = visitor.visit(new Multiplication(new Resta(new Valor(5), new Variable("i")), new Valor(8)));
 
         assertThat(result, equalTo(24d));
     }

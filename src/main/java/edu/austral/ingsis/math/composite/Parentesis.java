@@ -3,27 +3,23 @@ package edu.austral.ingsis.math.composite;
 import java.util.List;
 import java.util.Map;
 
-public class SquareRoot implements Function {
-
-    Function function;
-
-    public SquareRoot(Function function){
-        this.function = function;
+public class Parentesis implements Function{
+    Function a;
+    public Parentesis(Function a){
+        this.a = a;
     }
-
     @Override
     public double solve(Map<String, Double> variables) {
-        return Math.sqrt(function.solve(variables));
+        return a.solve(variables);
     }
 
     @Override
     public String printValue() {
-        return "√" + function.printValue();
+        return "(" + a.printValue() + ")";
     }
 
     @Override
     public List<String> getVariables(List<String> list) {
-        return function.getVariables(list);
+        return a.getVariables(list);
     }
-
 }
