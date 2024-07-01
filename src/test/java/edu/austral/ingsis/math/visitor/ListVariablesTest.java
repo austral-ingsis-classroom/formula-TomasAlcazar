@@ -1,14 +1,14 @@
-//package edu.austral.ingsis.math.visitor;
+// package edu.austral.ingsis.math.visitor;
 //
-//import static org.hamcrest.MatcherAssert.assertThat;
-//import static org.hamcrest.Matchers.containsInAnyOrder;
-//import static org.hamcrest.Matchers.empty;
+// import static org.hamcrest.MatcherAssert.assertThat;
+// import static org.hamcrest.Matchers.containsInAnyOrder;
+// import static org.hamcrest.Matchers.empty;
 //
-//import java.util.Collections;
-//import java.util.List;
-//import org.junit.jupiter.api.Test;
+// import java.util.Collections;
+// import java.util.List;
+// import org.junit.jupiter.api.Test;
 //
-//public class ListVariablesTest {
+// public class ListVariablesTest {
 //
 //    /** Case 1 + 6 */
 //    @Test
@@ -73,4 +73,4 @@
 //
 //        assertThat(result, containsInAnyOrder("i"));
 //    }
-//}
+// }

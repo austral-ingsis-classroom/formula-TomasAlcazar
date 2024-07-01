@@ -4,6 +4,7 @@ plugins {
     id('com.diffplug.spotless') version '6.25.0'
 }
 
+
 group 'edu.austral'
 version '1.0-SNAPSHOT'
 
@@ -21,6 +22,7 @@ jacoco {
     toolVersion = "0.8.11"
     reportsDirectory = layout.buildDirectory.dir('customJacocoReportDir')
 }
+
 
 test {
     useJUnitPlatform()
@@ -41,16 +43,11 @@ jacocoTestCoverageVerification {
     }
 }
 
+
 // Code formatting configuration
+
 spotless {
     java {
         googleJavaFormat()
-    }
-}
-
-// Set the Java version to 21
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
     }
 }
